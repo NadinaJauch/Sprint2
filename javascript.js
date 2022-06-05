@@ -11,24 +11,27 @@ function agregarMovimiento() {
     lista.push(objeto);
 
     $("#grupo-list").append(
-      '<li class="divider" >' + objeto.nombre + ": $" + objeto.gasto + "</li>"
+      '<li class="bg-light border rounded  w-50" >' +
+        objeto.nombre +
+        ": $" +
+        objeto.gasto +
+        "</li>"
     );
 
     calcularTotales();
 
     $("#total").html("<br>Total: $" + total);
-    $("#promedio").html("Cada uno debe aportar: $ " + promedio);
+    $("#promedio").html("Cada uno debe aportar: $" + promedio);
     $("#nombre, #gasto").val("");
   }
 }
 
 function calcularTotales() {
-  let totalAux = 0;
+  total = 0;
 
   for (let m of lista) {
-    totalAux += parseInt(m.gasto);
+    total += parseInt(m.gasto);
   }
 
-  total = totalAux;
   promedio = (total / lista.length).toFixed(2);
 }
