@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=|, initial-scale=1.0">
+    <link rel="stylesheet" href="./recursos/bootstrap.min.css" />
+    <title>Document</title>
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            <div class="col-auto text-center bg-primary text-light">
+                <h1>
+                    App de gastos
+                </h1>
+                <p>
+                    Ingresa cuánto pagó cada persona
+                </p>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <form>
+            <div class="row">
+                <div class="m-1 col-auto">
+                    <input id="nombre" type="text" class="form-control" placeholder="Ingresar nombre" />
+                </div>
+                <div class="m-1 col-auto">
+                    <input id="gasto" type="number" class="form-control" placeholder="Ingresar cuanto gastó" />
+                </div>
+                <div class="m-1 col-auto">
+                    <div>
+                        <button class="btn btn-danger" type="button" onclick="agregarMovimiento()">ENVIAR</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <ul id="grupo-list" class="list-group nav nav-list"></ul>
+    <div id="total" type="text"></div>
+    <div id="promedio" type="text"></div>
+
+</body>
+
+<script type="text/javascript" src="/javascript.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+</html>
