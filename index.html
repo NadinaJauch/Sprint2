@@ -31,15 +31,25 @@
                 <div class="m-1 col-auto">
                     <input id="gasto" type="number" class="form-control" placeholder="Ingresar cuanto gastó" />
                 </div>
+                <div class="form-check m-1 col-auto d-flex align-items-center">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" onclick="pagoEfectivo()"
+                        required>
+                    <label class="form-check-label m-1 col-auto" for="invalidCheck2">
+                        Pagó con efectivo
+                    </label>
+                </div>
                 <div class="m-1 col-auto">
                     <div>
                         <button class="btn btn-danger" type="button" onclick="agregarMovimiento()">ENVIAR</button>
                     </div>
                 </div>
+
             </div>
         </form>
     </div>
-    <ul id="grupo-list" class="list-group d-grid gap-1 ">
+    <div class="d-flex justify-content-center">
+        <ul id="grupo-list" class="list-group d-grid gap-1 d-flex w-75">
+    </div>
     </ul>
     <div id="total" type="text"></div>
     <div id="promedio" type="text"></div>
