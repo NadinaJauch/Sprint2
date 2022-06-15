@@ -8,40 +8,44 @@ function pagoEfectivo() {
   efectivoCheck = !efectivoCheck;
 }
 function agregarMovimiento() {
-  if ($("#nombre").val() != "" && $("#gasto").val() != "") {
+  let nombre = document.getElementById("nombre").value;
+  let gasto = document.getElementById("gasto").value;
+  let fecha = new Date().toLocaleString();
+  if (nombre != "" && gasto != "") {
     let objeto = new Object();
-    objeto.nombre = $("#nombre").val();
-    objeto.gasto = $("#gasto").val();
-    objeto.fecha = new Date().toLocaleString();
+    objeto.nombre = nombre;
+    objeto.gasto = gasto;
+    objeto.fecha = fecha;
     lista.push(objeto);
 
     if (efectivoCheck == true) {
-      console.log("Hola");
       efectivo = "Pagó en efectivo";
     } else {
       efectivo = "No pagó en efectivo";
     }
-    $("#grupo-list").append(
-      '<li class="bg-light border rounded  d-flex" ><ul>' +
-        "<li>" +
-        objeto.nombre +
-        ": $" +
-        objeto.gasto +
-        ", " +
-        "</li>" +
-        "<li>" +
-        efectivo +
-        "</li>" +
-        "<li>Fecha: " +
-        objeto.fecha +
-        "</li>" +
-        "</ul></li>"
-    );
+    let ul = document.getElementById("grupo-list");
+    let li = document.createElement("li");
+    li.className = "class= bg-light border rounded  d-flex";
+    let ul2 = document.createElement("ul");
+    let liNombreGasto = document.createElement("li");
+    let liEfectivo = document.createElement("li");
+    let liFecha = document.createElement("li");
+    liNombreGasto.textContent = nombre + ": $" + gasto;
+    liEfectivo.textContent = efectivo;
+    liFecha.textContent = fecha;
+
+    ul2.append(liNombreGasto);
+    ul2.append(liEfectivo);
+    ul2.append(liFecha);
+    li.append(ul2);
+    ul.append(li);
 
     calcularTotales();
-    $("#total").html("<br>Total: $" + total);
-    $("#promedio").html("Cada uno debe aportar: $" + promedio);
-    $("#nombre, #gasto").val("");
+    document.getElementById("total").innerHTML = "<br>Total: $" + total;
+    document.getElementById("promedio").innerHTML =
+      "Cada uno debe aportar: $" + promedio;
+    nombre = "";
+    gasto = "";
   }
 }
 
